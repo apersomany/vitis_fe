@@ -15,9 +15,10 @@ export let SERIESM = () => database("seriesm", {});
 export let SINGLEM = () => database("singlem", {});
 
 export const CONFIGS_DEFAULT = {
-    api_base: "http://localhost:8080",
-    cdn_base: "http://localhost:8080",
+    api_base: "https://focuses-reduces-women-nick.trycloudflare.com",
+    cdn_base: "https://focuses-reduces-women-nick.trycloudflare.com",
     dark: false,
+    size: 1.1,
 };
 
 export let CONFIGS = () => database("configs", CONFIGS_DEFAULT);

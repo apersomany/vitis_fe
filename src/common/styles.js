@@ -42,6 +42,10 @@ export function update_cond() {
                 --text-color: #f8f8ff;
                 --icon-color: #bdbdbf;
             }
+
+            .dark {
+                filter: invert();
+            }
         `;
     } else {
         cond.textContent = `

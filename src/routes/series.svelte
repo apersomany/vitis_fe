@@ -98,13 +98,16 @@
         </div>
     </div>
     <div class="box_2">
-        <div class="text_button" style="width: calc(100vw - 7.5rem);">
-            {#if seriesm[series_id].last_read_name}
-                {seriesm[series_id].last_read_name}
-            {:else}
-                첫 화 보기
-            {/if}
-        </div>
+        <label>
+            <input type="button" on:click={() => push(`/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
+            <div class="text_button" style="width: calc(100vw - 7.5rem);">
+                {#if seriesm[series_id].last_read_name}
+                    {seriesm[series_id].last_read_name}
+                {:else}
+                    첫 화 보기
+                {/if}
+            </div>
+        </label>
         {#if seriesm[series_id].hearted}
             <label>
                 <input type="button" on:click={() => (seriesm[series_id].hearted = false)} />
@@ -136,15 +139,7 @@
     <div class="box_3">
         {#each list as item}
             <label>
-                <input
-                    type="button"
-                    on:click={() => {
-                        seriesm[series_id].last_read_time = Date.now();
-                        seriesm[series_id].last_read_name = item.title;
-                        seriesm[series_id].last_read_id = item.single_id;
-                        push(`/single/${series_id}/${item.single_id}`);
-                    }}
-                />
+                <input type="button" on:click={() => push(`/single/${series_id}/${item.single_id}`)} />
                 <div class="box_5">
                     <img class="cover_2" src="{configs.cdn_base}/download/resource?kid={item.cover}&filename=th2" alt="" />
                     <div class="box_6">
@@ -159,9 +154,21 @@
         {/each}
         <div style="height: 1rem;" bind:this={otgt} />
     </div>
+{:else}
+    <div class="loading">
+        <div>로딩중</div>
+    </div>
 {/if}
 
 <style>
+    .loading {
+        display: flex;
+        width: 100vw;
+        height: 100vh;
+        align-items: center;
+        justify-content: center;
+    }
+
     input {
         display: none;
     }

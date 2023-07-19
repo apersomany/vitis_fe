@@ -1,5 +1,5 @@
 <script>
-    import Page from "./kakao_html/page.svelte";
+    import Page from "./page.svelte";
 
     export let configs;
     /** @type { { chapter_id: number; content_id: number; kid: string }[] } */
@@ -12,7 +12,7 @@
     }
 </script>
 
-<div style="margin: 1rem;">
+<div style="font-size: {configs.size}rem;">
     {#each data as item}
         {#await load(item.kid) then page}
             <Page {configs} {page} />
