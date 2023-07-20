@@ -3,6 +3,10 @@ import process from "process";
 import fs from "fs/promises";
 import svelte from "esbuild-svelte";
 
+try {
+    await fs.mkdir("out");
+} catch (e) {}
+
 await fs.copyFile("src/app.html", "out/index.html");
 
 let config = {

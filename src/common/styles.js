@@ -8,6 +8,20 @@ let base = document.createElement("style");
 document.head.appendChild(base);
 
 base.textContent = `
+    ::-webkit-scrollbar {
+        width: 4px;
+    }
+
+    ::-webkit-scrollbar-track {
+        background: transparent;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        background-color: rgba(var(--line-color));
+        border-radius: 4px;
+        border: transparent;
+    }
+
     body {
         font-family: sans-serif;
         height: 100vh;
