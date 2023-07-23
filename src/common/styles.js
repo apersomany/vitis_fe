@@ -18,17 +18,7 @@ base.textContent = `
     input[type="search"]::-webkit-search-results-decoration { display: none; }
 
     ::-webkit-scrollbar {
-        width: 4px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: transparent;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background-color: rgba(var(--line-color));
-        border-radius: 4px;
-        border: transparent;
+        display: none;
     }
 
     body {
