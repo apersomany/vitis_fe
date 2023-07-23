@@ -8,6 +8,15 @@ let base = document.createElement("style");
 document.head.appendChild(base);
 
 base.textContent = `
+/
+    /* Copied from https://medium.com/@rion.mrk/how-to-remove-x-icon-from-search-input-field-or-input-type-search-db3c808405fb */
+    input[type=search]::-ms-clear { display: none; width : 0; height: 0; }
+    input[type=search]::-ms-reveal { display: none; width : 0; height: 0; }
+    input[type="search"]::-webkit-search-decoration,
+    input[type="search"]::-webkit-search-cancel-button,
+    input[type="search"]::-webkit-search-results-button,
+    input[type="search"]::-webkit-search-results-decoration { display: none; }
+
     ::-webkit-scrollbar {
         width: 4px;
     }
@@ -31,6 +40,7 @@ base.textContent = `
     * { 
         background-color: var(--back-color);
         color: var(--text-color);
+        user-select: none;
     }
 
     [class^="mgc_"]::before, [class*=" mgc_"]::before {
@@ -58,6 +68,7 @@ export function update_cond() {
             }
 
             .dark {
+                background-color: #ffffff;
                 filter: invert();
             }
         `;

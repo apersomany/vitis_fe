@@ -1,8 +1,8 @@
 <script>
     import { pop, replace } from "svelte-spa-router";
     import { CONFIGS, SERIESM } from "../common/states";
-    import KakaoHtml from "./single/kakao_html.svelte";
-    import ImageList from "./single/image_list.svelte";
+    import KakaoHtml from "./common/kakao_html.svelte";
+    import ImageList from "./common/image_list.svelte";
     import { onMount } from "svelte";
     import { toggle_dark } from "../common/styles";
 
@@ -30,7 +30,9 @@
         }
     }
 
+    let footer;
     onMount(() => {});
+
     $: {
         load(params.single_id);
     }
@@ -44,6 +46,7 @@
         {#if meta.viewer.type == "KakaoHTML"}
             <KakaoHtml {configs} data={meta.viewer.data} />
         {/if}
+        <div bind:this={footer} style="height: 1rem;" />
     </div>
     <div class="config" style="display: {show_config ? 'flex' : 'none'}">
         <label>
@@ -52,19 +55,19 @@
         </label>
         <label>
             <input type="button" on:click={() => (configs.size -= 0.1)} />
-            <span class="mgc_fullscreen_exit_2_fill" />
+            <span class="mgc_fullscreen_exit_2_line" />
         </label>
         <label>
             <input type="button" on:click={() => (configs.size += 0.1)} />
-            <span class="mgc_fullscreen_2_fill" />
+            <span class="mgc_fullscreen_2_line" />
         </label>
         <label>
-            <input type="button" on:click={() => {}} />
-            <span class="mgc_transfer_2_fill" />
+            <input type="button" on:click={() => (configs.cellular = !configs.cellular)} />
+            <span class="mgc_transfer_2_{configs.cellular ? 'fill' : 'line'}" />
         </label>
         <label>
-            <input type="button" on:click={() => {}} />
-            <span class="mgc_fast_forward_fill" />
+            <input type="button" on:click={() => (configs.seamless = !configs.seamless)} />
+            <span class="mgc_fast_forward_{configs.seamless ? 'fill' : 'line'}" />
         </label>
     </div>
     <label>
@@ -125,6 +128,7 @@
     }
 
     span {
+        background-color: var(--card-color);
         border-radius: 0.5rem;
         padding: 1rem;
         font-size: 2rem;

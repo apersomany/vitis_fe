@@ -13,7 +13,7 @@
         <span class="mgc_heart_{selected == 2 ? 'fill' : 'line'}" />
     </label>
     <label>
-        <input type="button" on:click={() => replace("/history")} />
+        <input type="button" on:click={() => replace("/offline")} />
         <span class="mgc_folder_{selected == 3 ? 'fill' : 'line'}" />
     </label>
     <label>

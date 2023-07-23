@@ -12,7 +12,7 @@
 
 <div class="list">
     {#each data as item}
-        <img src="{configs.cdn_base}/sdownload/resource?kid={item.kid}" alt="" class={item.dark ? "dark" : ""} loading="lazy" />
+        <img src="{configs.cdn_base}/sdownload/resource?kid={item.kid}" alt="" class={item.dark ? "dark" : ""} />
     {/each}
 </div>
 

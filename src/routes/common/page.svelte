@@ -4,7 +4,6 @@
     export let configs;
     export let page;
 
-    let self;
     let head;
     let body;
 
@@ -37,7 +36,7 @@
                     e = document.createElement("div");
                     let f = document.createElement("img");
                     f.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`;
-                    f.style = `width: calc(100vw - 2rem);`;
+                    f.style = `width: calc(100vw - 4rem);`;
                     e.append(f);
                 } else {
                     e.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`;
@@ -66,7 +65,7 @@
     });
 </script>
 
-<div style="margin: 1rem;">
+<div style="margin: 2rem;">
     <div bind:this={head} />
     <div bind:this={body} />
 </div>

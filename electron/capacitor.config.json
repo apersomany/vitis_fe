@@ -1,0 +1,8 @@
+{
+  "appId": "dev.aperso.vitis",
+  "appName": "Vitis",
+  "webDir": "out",
+  "server": {
+    "androidScheme": "https"
+  }
+}

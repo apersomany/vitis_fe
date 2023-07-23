@@ -99,14 +99,13 @@
     </div>
     <div class="box_2">
         <label>
-            <input type="button" on:click={() => push(`/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
-            <div class="text_button" style="width: calc(100vw - 7.5rem);">
-                {#if seriesm[series_id].last_read_name}
-                    {seriesm[series_id].last_read_name}
-                {:else}
-                    첫 화 보기
-                {/if}
-            </div>
+            {#if seriesm[series_id].last_read_name}
+                <input type="button" on:click={() => push(`/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
+                <div class="text_button" style="width: calc(100vw - 7.5rem);">{seriesm[series_id].last_read_name}</div>
+            {:else}
+                <input type="button" on:click={() => push(`/single/${series_id}/${list[0].single_id}`)} />
+                <div class="text_button" style="width: calc(100vw - 7.5rem);">첫 화 보기</div>
+            {/if}
         </label>
         {#if seriesm[series_id].hearted}
             <label>
