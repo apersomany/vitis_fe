@@ -7,20 +7,21 @@ try {
     await fs.mkdir("out");
 } catch (e) {}
 
-await fs.copyFile("src/app.html", "out/index.html");
-
 let config = {
-    entryPoints: ["src/app.js", "src/svc.js"],
+    entryPoints: ["src/app.js", "src/svc.js", "src/manifest.json", "src/icon.png", "src/index.html"],
     mainFields: ["svelte", "browser", "module", "main"],
     conditions: ["svelte", "browser"],
     outdir: "out",
     minify: process.argv[2] == "build",
     bundle: true,
     loader: {
+        ".html": "copy",
+        ".json": "copy",
         ".woff": "copy",
         ".ttf": "copy",
         ".eot": "copy",
         ".svg": "copy",
+        ".png": "copy",
     },
     logLevel: "info",
     plugins: [svelte()],
