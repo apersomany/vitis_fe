@@ -1,5 +1,5 @@
 <script>
-    import { SERIESM } from "../../common/states";
+    import { SERIESM } from "../common/states";
     import Content from "./common/content.svelte";
     import Library from "./common/library.svelte";
     import NavBar from "./common/nav_bar.svelte";
@@ -11,10 +11,11 @@
                 ...val,
             };
         })
+        .filter((e) => e.hearted)
         .sort((a, b) => b.last_read_time - a.last_read_time);
 </script>
 
 <Content>
     <Library {serieses} />
 </Content>
-<NavBar selected={3} />
+<NavBar selected={2} />

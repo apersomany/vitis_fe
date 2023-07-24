@@ -1,8 +1,9 @@
 <script>
     import { push } from "svelte-spa-router";
-    import { CONFIGS } from "../../../common/states";
+    import { CONFIGS } from "../../common/states";
 
     export let serieses;
+    export let base = "";
 
     let configs = CONFIGS();
 </script>
@@ -10,7 +11,7 @@
 <div class="box_1">
     {#each serieses as series}
         <label>
-            <input type="button" on:click={push(`/series/${series.series_id}`)} />
+            <input type="button" on:click={push(`${base}/series/${series.series_id}`)} />
             <div class="box_2">
                 <img class="cover" src="{configs.cdn_base}/download/resource?kid={series.cover}&filename=th3" alt="" />
                 <div class="box_3">

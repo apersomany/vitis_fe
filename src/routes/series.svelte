@@ -30,10 +30,10 @@
     }
 
     function nfmt(n) {
-        if (n > 105000000) {
+        if (n > 99999999) {
             return Math.round(n / 1000000) / 100 + "억";
         }
-        if (n > 10500) {
+        if (n > 9999) {
             return Math.round(n / 1000) / 10 + "만";
         }
         return n;
@@ -101,11 +101,15 @@
         <label>
             {#if seriesm[series_id].last_read_name}
                 <input type="button" on:click={() => push(`/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
-                <div class="text_button" style="width: calc(100vw - 7.5rem);">{seriesm[series_id].last_read_name}</div>
+                <div class="text_button" style="width: calc(100vw - 10rem);">{seriesm[series_id].last_read_name}</div>
             {:else}
                 <input type="button" on:click={() => push(`/single/${series_id}/${list[0].single_id}`)} />
-                <div class="text_button" style="width: calc(100vw - 7.5rem);">첫 화 보기</div>
+                <div class="text_button" style="width: calc(100vw - 10rem);">첫 화 보기</div>
             {/if}
+        </label>
+        <label>
+            <input type="button" on:click={() => push(`/offline/download/${series_id}`)} />
+            <span class="icon_button mgc_folder_download_line" />
         </label>
         {#if seriesm[series_id].hearted}
             <label>

@@ -1,6 +1,6 @@
 <script>
-    import { CONFIGS } from "../../common/states";
-    import { toggle_dark } from "../../common/styles";
+    import { CONFIGS } from "../common/states";
+    import { toggle_dark } from "../common/styles";
     import Content from "./common/content.svelte";
     import NavBar from "./common/nav_bar.svelte";
 

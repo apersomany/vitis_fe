@@ -1,5 +1,5 @@
 <script>
-    import { SERIESM } from "../../common/states";
+    import { SERIESM } from "../common/states";
     import Content from "./common/content.svelte";
     import Library from "./common/library.svelte";
     import NavBar from "./common/nav_bar.svelte";

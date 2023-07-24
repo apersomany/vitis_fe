@@ -65,7 +65,7 @@ export function update_cond() {
     } else {
         cond.textContent = `
             * {
-                --blur-filter :contrast(50%) brightness(200%) blur(50px);
+                --blur-filter: contrast(50%) brightness(200%) blur(50px);
                 --back-color: #ffffff;
                 --line-color: #bdbdbf;
                 --card-color: #fdfdff;

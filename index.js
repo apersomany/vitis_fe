@@ -10,7 +10,7 @@ try {
 await fs.copyFile("src/app.html", "out/index.html");
 
 let config = {
-    entryPoints: ["src/app.js"],
+    entryPoints: ["src/app.js", "src/svc.js"],
     mainFields: ["svelte", "browser", "module", "main"],
     conditions: ["svelte", "browser"],
     outdir: "out",
