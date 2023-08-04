@@ -22,7 +22,6 @@
             const file = await root.getFileHandle(`${single_id}.meta`);
             const text = await (await file.getFile()).text();
             meta = JSON.parse(text);
-            console.log(meta);
             seriesm[series_id].last_read_time = Date.now();
             seriesm[series_id].last_read_name = meta.title;
             seriesm[series_id].last_read_id = single_id;

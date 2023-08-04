@@ -3,8 +3,10 @@ import { LowSync } from "lowdb";
 import { onDestroy } from "svelte";
 
 export const CONFIGS_DEFAULT = {
-    api_base: "https://enter-your-server.com",
-    cdn_base: "https://dn-img-page.kakao.com",
+    api_base: "https://focuses-reduces-women-nick.trycloudflare.com",
+    cdn_base: "https://focuses-reduces-women-nick.trycloudflare.com",
+    // api_base: "https://enter-your-server.com",
+    // cdn_base: "https://dn-img-page.kakao.com",
     dark: false,
     size: 1.1,
     cellular: false,
@@ -26,6 +28,11 @@ function database(key, def) {
     return CURRENTLY_OPEN[key].data;
 }
 
+export let registration = {
+    update() {
+        alert("the service worker has not yet been registered");
+    },
+};
 export let SERIESM = () => database("seriesm", {});
 export let SINGLEM = () => database("singlem", {});
 export let OFFLINE = () => database("offline", {});

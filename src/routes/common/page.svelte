@@ -40,6 +40,7 @@
                     e.append(f);
                 } else {
                     e.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`;
+                    e.style = `max-width: calc(100vw - 4rem); ${e.style ? e.style : ""}`;
                 }
             }
             if (data.childParagraphList) {

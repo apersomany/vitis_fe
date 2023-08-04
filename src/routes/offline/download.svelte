@@ -8,6 +8,7 @@
     let seriesm = SERIESM();
     let configs = CONFIGS();
 
+    let meta = {};
     let more = true;
     let page = 0;
     let list = [];
@@ -23,10 +24,11 @@
         while (more) {
             let resp = await fetch(`${configs.api_base}/series?series_id=${series_id}&page=${page++}&sort=asc`);
             let json = await resp.json();
+            meta = json.meta;
             list = [...list, ...json.list];
             more = json.more;
             text = `Loading single list ${list.length}/?`;
-            break;
+            // break; debugging purposes
         }
         const exclude = new Set();
         const fs = await navigator.storage.getDirectory();
@@ -44,7 +46,9 @@
                 return false;
             }
         }
+        let counter = 0;
         for (const item of list) {
+            let sleep_promise = sleep(2000);
             text = `Downloading ${item.title}`;
             if (await exists(`${item.single_id}.meta`)) {
                 good.push({ single_id: item.single_id, title: item.title });
@@ -89,18 +93,22 @@
                         await Promise.all(chunks.splice(0, 8).map((e) => fetch(e)));
                     }
                     await writeJSON(`${item.single_id}.meta`, meta);
+                    counter = 0;
+                    good.push({ single_id: item.single_id, title: item.title });
                 } else {
+                    if (counter++ > 5) {
+                        break;
+                    }
                     throw new Error(await resp.text());
                 }
             } catch (e) {
                 alert(`Failed to download ${item.title}: ${e}`);
             }
-            good.push({ single_id: item.single_id, title: item.title });
-            await sleep(100);
+            await sleep_promise;
         }
         await writeJSON(`${series_id}.list`, good);
         seriesm[series_id].offline = true;
-        text = "Download complete";
+        text = `Download complete`;
     })();
 </script>
 

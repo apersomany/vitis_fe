@@ -40,10 +40,10 @@
 <div class="box_2">
     <label>
         {#if seriesm[series_id].last_read_name}
-            <input type="button" on:click={() => push(`/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
+            <input type="button" on:click={() => push(`/offline/single/${series_id}/${seriesm[series_id].last_read_id}`)} />
             <div class="text_button" style="width: calc(100vw - 4rem);">{seriesm[series_id].last_read_name}</div>
         {:else}
-            <input type="button" on:click={() => push(`/single/${series_id}/${list[0].single_id}`)} />
+            <input type="button" on:click={() => push(`/offline/single/${series_id}/${list[0].single_id}`)} />
             <div class="text_button" style="width: calc(100vw - 4rem);">첫 화 보기</div>
         {/if}
     </label>

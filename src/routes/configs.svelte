@@ -5,6 +5,17 @@
     import NavBar from "./common/nav_bar.svelte";
 
     let configs = CONFIGS();
+
+    async function update() {
+        const registrations = await navigator.serviceWorker.getRegistrations();
+        for (const registration of registrations) {
+            if (!(await registration.unregister())) {
+                alert("failed to unregister worker");
+            }
+        }
+        await caches.delete("pwa");
+        location.reload();
+    }
 </script>
 
 <Content>
@@ -18,7 +29,11 @@
     </label>
     <label>
         <div>Dark Mode</div>
-        <input type="checkbox" on:click={toggle_dark} />
+        <input type="checkbox" on:click={toggle_dark} checked={configs.dark} />
+    </label>
+    <label>
+        <div>Update</div>
+        <input type="button" on:click={update} />
     </label>
 </Content>
 <NavBar selected={5} />

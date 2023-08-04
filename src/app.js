@@ -16,7 +16,7 @@ import OfflineSingle from "./routes/offline/single.svelte";
 import { App } from "@capacitor/app";
 
 import "./common/styles";
-import { CURRENTLY_OPEN } from "./common/states";
+import { CURRENTLY_OPEN, registration } from "./common/states";
 
 const routes = {
     "/history": History,
@@ -51,7 +51,7 @@ App.addListener("pause", () => {
 if (navigator.serviceWorker) {
     navigator.serviceWorker
         .register("/svc.js")
-        .then(() => {
+        .then((r) => {
             new Router({ target: document.body, props: { routes } });
         })
         .catch((e) => {

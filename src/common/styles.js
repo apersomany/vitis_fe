@@ -2,7 +2,7 @@ import { LocalStorage } from "lowdb/browser";
 import { LowSync } from "lowdb";
 
 import "mingcute_icon/font/Mingcute.css";
-import { CONFIGS_DEFAULT } from "./states";
+import { CONFIGS, CONFIGS_DEFAULT } from "./states";
 
 let base = document.createElement("style");
 document.head.appendChild(base);
@@ -41,12 +41,10 @@ base.textContent = `
 let cond = document.createElement("style");
 document.head.appendChild(cond);
 
-let conf = new LowSync(new LocalStorage("configs"), CONFIGS_DEFAULT);
-conf.read();
-let dark = conf.data.dark;
+let conf = CONFIGS();
 
 export function update_cond() {
-    if (dark) {
+    if (conf.dark) {
         cond.textContent = `
             * {
                 --blur-filter: contrast(200%) brightness(50%) blur(50px);
@@ -77,10 +75,7 @@ export function update_cond() {
 }
 
 export function toggle_dark() {
-    conf.read();
-    conf.data.dark = !dark;
-    conf.write();
-    dark = !dark;
+    conf.dark = !conf.dark;
     update_cond();
 }
 
