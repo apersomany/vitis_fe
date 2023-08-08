@@ -8,7 +8,7 @@ try {
 } catch (e) {}
 
 let config = {
-    entryPoints: ["src/app.js", "src/svc.js", "src/manifest.json", "src/icon.png", "src/index.html"],
+    entryPoints: ["src/app.js", "src/svc.js", "src/manifest.json", "src/icon.png", "src/index.html", "src/model.onnx"],
     mainFields: ["svelte", "browser", "module", "main"],
     conditions: ["svelte", "browser"],
     outdir: "out",
@@ -17,6 +17,7 @@ let config = {
     loader: {
         ".html": "copy",
         ".json": "copy",
+        ".onnx": "copy",
         ".woff": "copy",
         ".ttf": "copy",
         ".eot": "copy",

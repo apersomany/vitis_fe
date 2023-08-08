@@ -25,7 +25,7 @@
 
 <div class="list">
     {#each list as item}
-        <img src="{configs.cdn_base}/sdownload/resource?kid={item.kid}" alt="" class={item.dark ? "dark" : ""} />
+        <img src="http://127.0.0.1:1234/upscale?src={configs.cdn_base}/sdownload/resource?kid={item.kid}" alt="" class={item.dark ? "dark" : ""} />
     {/each}
 </div>
 
@@ -38,6 +38,5 @@
 
     img {
         min-width: 100vw;
-        min-height: 100vw;
     }
 </style>
