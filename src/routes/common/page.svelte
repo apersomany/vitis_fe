@@ -3,6 +3,7 @@
 
     export let configs;
     export let page;
+    export let offline = "";
 
     let head;
     let body;
@@ -35,11 +36,11 @@
                 if (data.image.isCover) {
                     e = document.createElement("div");
                     let f = document.createElement("img");
-                    f.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`;
+                    f.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}${offline}`;
                     f.style = `width: calc(100vw - 4rem);`;
                     e.append(f);
                 } else {
-                    e.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`;
+                    e.src = `${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}${offline}`;
                     e.style = `max-width: calc(100vw - 4rem); ${e.style ? e.style : ""}`;
                 }
             }
@@ -57,7 +58,7 @@
             let e = document.createElement("link");
             e.rel = "stylesheet";
             e.type = "text/css";
-            e.href = `${configs.cdn_base}/download/resource?kid=${style.src}`;
+            e.href = `${configs.cdn_base}/download/resource?kid=${style.src}${offline}`;
             head.append(e);
         }
         for (let data of page.paragraphList) {

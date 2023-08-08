@@ -4,6 +4,7 @@
     export let configs;
     /** @type { { chapter_id: number; content_id: number; kid: string }[] } */
     export let data;
+    export let offline = "";
 
     let list;
 
@@ -25,7 +26,7 @@
 <div style="font-size: {configs.size}rem;">
     {#each list as item}
         {#await load(item.kid) then page}
-            <Page {configs} {page} />
+            <Page {configs} {page} {offline} />
         {/await}
     {/each}
 </div>

@@ -16,6 +16,7 @@ addEventListener("fetch", (e) => {
 });
 
 async function proxy(req) {
+    const cache = await caches.open("cache");
     const url = new URL(req.url);
     const pwa = await caches.open("pwa");
     const res = await pwa.match(url.pathname);
@@ -23,7 +24,7 @@ async function proxy(req) {
         return res;
     }
     if (url.searchParams.has("offline")) {
-        const cache = await caches.open("cache");
+        url.searchParams.delete("offline");
         const req = new Request(url);
         const res = await cache.match(req);
         if (res) {

@@ -38,10 +38,10 @@
 {#if meta}
     <div class="content">
         {#if meta.viewer.type == "ImageList"}
-            <ImageList {configs} data={meta.viewer.data} />
+            <ImageList {configs} data={meta.viewer.data} offline={"?offline"} />
         {/if}
         {#if meta.viewer.type == "KakaoHTML"}
-            <KakaoHtml {configs} data={meta.viewer.data} />
+            <KakaoHtml {configs} data={meta.viewer.data} offline={"?offline"} />
         {/if}
     </div>
     <div class="config" style="display: {show_config ? 'flex' : 'none'}">

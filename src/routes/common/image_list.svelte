@@ -2,6 +2,7 @@
     export let configs;
     /** @type { { size: number; kid: string }[] } */
     export let data;
+    export let offline = "";
 
     let sorted = data.map((e) => e.size).sort((a, b) => a - b);
     let median = sorted[Math.floor(sorted.length / 2)];
@@ -25,7 +26,7 @@
 
 <div class="list">
     {#each list as item}
-        <img src="http://127.0.0.1:1234/upscale?src={configs.cdn_base}/sdownload/resource?kid={item.kid}" alt="" class={item.dark ? "dark" : ""} />
+        <img src="{configs.cdn_base}/sdownload/resource?kid={item.kid}{offline}" alt="" class={item.dark ? "dark" : ""} />
     {/each}
 </div>
 

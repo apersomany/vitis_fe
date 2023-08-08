@@ -63,20 +63,20 @@
                     let chunks = [];
                     if (viewer.type == "ImageList") {
                         viewer.data = viewer.data.slice(1);
-                        chunks = viewer.data.map((e) => `${configs.cdn_base}/sdownload/resource?kid=${e.kid}`);
+                        chunks = viewer.data.map((e) => `${configs.cdn_base}/sdownload/resource?kid=${e.kid}?offline`);
                     }
                     if (viewer.type == "KakaoHTML") {
                         viewer.data = viewer.data.filter((e) => e.chapter_id > 0);
                         for (const item of viewer.data) {
-                            let resp = await fetch(`${configs.cdn_base}/sdownload/resource?kid=${item.kid}`);
+                            let resp = await fetch(`${configs.cdn_base}/sdownload/resource?kid=${item.kid}?offline`);
                             let json = await resp.json();
                             let page = json.contentInfo;
                             for (const style of page.styleList) {
-                                chunks.push(`${configs.cdn_base}/download/resource?kid=${style.src}`);
+                                chunks.push(`${configs.cdn_base}/download/resource?kid=${style.src}?offline`);
                             }
                             function paragraph(data) {
                                 if (data.image) {
-                                    chunks.push(`${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}`);
+                                    chunks.push(`${configs.cdn_base}/download/resource?kid=${data.image.imageSrcKey}?offline`);
                                 }
                                 if (data.childParagraphList) {
                                     for (let child_data of data.childParagraphList) {
