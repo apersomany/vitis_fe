@@ -42,5 +42,8 @@ export let CONFIGS = () => {
     if (window.vitis_cdn_base) {
         db.cdn_base = window.vitis_cdn_base;
     }
+    if (!db.vsr_base) {
+        db.vsr_base = "";
+    }
     return db;
 };
