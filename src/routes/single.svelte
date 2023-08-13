@@ -82,7 +82,7 @@
                         replace(`${offline ? "offline" : ""}/single/${series_id}/${meta.next}`);
                     }
                 };
-            }, 5000);
+            }, 2500);
             seriesm[series_id].last_read_time = Date.now();
             seriesm[series_id].last_read_name = meta.title;
             seriesm[series_id].last_read_id = single_id;

@@ -14,10 +14,8 @@
         return json.contentInfo;
     }
 
-    $: if (configs.seamless) {
-        list = data.filter((e) => e.chapter_id == 1);
-    } else if (configs.cellular) {
-        list = data.filter((e) => e.chapter_id != 0);
+    $: if (configs.cellular) {
+        list = data.filter((e) => e.chapter_id > 0);
     } else {
         list = data;
     }
