@@ -67,6 +67,9 @@
         try {
             meta = await load_m(single_id);
             await mounted;
+            content.onclick = () => {
+                show_navbar = !show_navbar;
+            };
             if (content.children.length > 1) {
                 content.children[0].remove();
             }
@@ -93,6 +96,9 @@
             meta = await load_m(single_id);
             await mounted;
             content.onscroll = () => {};
+            content.onclick = () => {
+                show_navbar = !show_navbar;
+            };
             content.replaceChildren();
             await render(meta);
             seriesm[series_id].last_read_time = Date.now();
