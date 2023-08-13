@@ -28,6 +28,10 @@
         <input type="text" bind:value={configs.cdn_base} />
     </label>
     <label>
+        <div>VSR Base URL</div>
+        <input type="text" bind:value={configs.vsr_base} />
+    </label>
+    <label>
         <div>Dark Mode</div>
         <input type="checkbox" on:click={toggle_dark} checked={configs.dark} />
     </label>

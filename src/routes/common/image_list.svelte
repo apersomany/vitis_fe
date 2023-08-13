@@ -17,7 +17,7 @@
     }
 
     let list = data;
-    $: if (configs.cellular || configs.seamless) {
+    $: if (configs.cellular) {
         if (!location.hash.includes("offline")) {
             list = data.slice(1);
         }
@@ -26,7 +26,7 @@
 
 <div class="list">
     {#each list as item}
-        <img src="{configs.cdn_base}/sdownload/resource?kid={item.kid}{offline}" alt="" class={item.dark ? "dark" : ""} />
+        <img src="{configs.vsr_base}{configs.cdn_base}/sdownload/resource?kid={item.kid}{offline}" alt="" class={item.dark ? "dark" : ""} />
     {/each}
 </div>
 

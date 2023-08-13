@@ -62,8 +62,4 @@ if (navigator.serviceWorker) {
 }
 
 // disables cache eviction entirely
-navigator.storage.persist().then((p) => {
-    if (!p) {
-        alert("vitis cannot function offline without persistent storage");
-    }
-});
+navigator.storage.persist();

@@ -8,7 +8,7 @@ try {
 } catch (e) {}
 
 let config = {
-    entryPoints: ["src/app.js", "src/svc.js", "src/manifest.json", "src/icon.png", "src/index.html", "src/model.onnx"],
+    entryPoints: ["src/app.js", "src/svc.js", "src/manifest.json", "src/icon.png", "src/index.html"],
     mainFields: ["svelte", "browser", "module", "main"],
     conditions: ["svelte", "browser"],
     outdir: "out",

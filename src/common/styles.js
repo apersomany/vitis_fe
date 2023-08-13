@@ -1,8 +1,5 @@
-import { LocalStorage } from "lowdb/browser";
-import { LowSync } from "lowdb";
-
 import "mingcute_icon/font/Mingcute.css";
-import { CONFIGS, CONFIGS_DEFAULT } from "./states";
+import { CONFIGS } from "./states";
 
 let base = document.createElement("style");
 document.head.appendChild(base);
@@ -25,6 +22,7 @@ base.textContent = `
         font-family: sans-serif;
         height: 100vh;
         margin: 0px;
+        overflow: hidden;
     }
 
     * { 
