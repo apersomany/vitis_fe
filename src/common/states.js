@@ -3,8 +3,8 @@ import { LowSync } from "lowdb";
 import { onDestroy } from "svelte";
 
 export const CONFIGS_DEFAULT = {
-    api_base: "https://focuses-reduces-women-nick.trycloudflare.com",
-    cdn_base: "https://focuses-reduces-women-nick.trycloudflare.com",
+    api_base: "https://editors-dist-tb-import.trycloudflare.com",
+    cdn_base: "https://editors-dist-tb-import.trycloudflare.com",
     vsr_base: "",
     // api_base: "https://enter-your-server.com",
     // cdn_base: "https://dn-img-page.kakao.com",

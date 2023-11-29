@@ -82,7 +82,7 @@
                         replace(`${offline ? "offline" : ""}/single/${series_id}/${meta.next}`);
                     }
                 };
-            }, 2500);
+            }, 10000);
             seriesm[series_id].last_read_time = Date.now();
             seriesm[series_id].last_read_name = meta.title;
             seriesm[series_id].last_read_id = single_id;
@@ -93,6 +93,7 @@
 
     async function load_n(single_id) {
         try {
+            meta = false;
             meta = await load_m(single_id);
             await mounted;
             content.onscroll = () => {};
